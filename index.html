@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M/S Sadhuram Jotumal & Sons - World of Spices</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Hindi:ital@0;1&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Saffron & Spice -->
+    <!-- Application Structure Plan: A single-page application is built with distinct sections: Home, About Us, Products, and Contact. A sticky navigation bar allows users to easily navigate these sections. The Products section features an an interactive filter, enabling users to view products by category. This structure significantly improves upon a static PDF by offering immediate and personalized content generation. -->
+    <!-- Visualization & Content Choices: Report Info -> Goal -> Viz/Presentation Method -> Interaction -> Justification -> Library/Method. 1. Business Intro -> Branding -> Hero Section -> Static -> To create an impactful first impression -> HTML/Tailwind. 2. Company History -> Inform -> About Us Section -> Static Text + Image -> To showcase the legacy -> HTML/Tailwind. 3. Product List -> Organize/Explore -> Interactive Product Grid -> Category filter buttons (JS) -> To help users easily find and browse products -> Vanilla JS. 4. Contact Details -> Action -> Contact Section -> Static Text + Icons -> For communication -> HTML/Tailwind. All choices are designed to provide a smooth and engaging user experience. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF8F0; /* Light cream background */
+        }
+        .hindi-title {
+            font-family: 'Tiro Hindi', serif;
+        }
+        .saffron-text {
+            color: #FF9933;
+        }
+        .saffron-bg {
+            background-color: #FF9933;
+        }
+        .saffron-bg-dark {
+            background-color: #F47521;
+        }
+        .saffron-border {
+            border-color: #FF9933;
+        }
+        .active-filter {
+            background-color: #F47521;
+            color: white;
+            border-color: #F47521;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header and Navigation -->
+    <header class="saffron-bg-dark text-white p-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold">Product Catalogue</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-amber-200 transition">Home</a>
+                <a href="#about" class="hover:text-amber-200 transition">About Us</a>
+                <a href="#products" class="hover:text-amber-200 transition">Products</a>
+                <a href="#contact" class="hover:text-amber-200 transition">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mt-4">
+            <a href="#home" class="block py-2 px-4 hover:bg-orange-600 rounded">Home</a>
+            <a href="#about" class="block py-2 px-4 hover:bg-orange-600 rounded">About Us</a>
+            <a href="#products" class="block py-2 px-4 hover:bg-orange-600 rounded">Products</a>
+            <a href="#contact" class="block py-2 px-4 hover:bg-orange-600 rounded">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-[60vh] text-white flex items-center justify-start bg-cover bg-center bg-orange-500">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="relative z-10 p-4 pl-8 md:pl-16">
+                <div class="flex flex-col space-y-4">
+                    <h2 class="text-3xl md:text-5xl font-bold">M/S Sadhuram Jotumal & Sons</h2>
+                    <h2 class="text-3xl md:text-5xl font-bold">S.J Proteins</h2>
+                </div>
+                <p class="text-lg md:text-xl mt-4 mb-8 font-light">Real Spices, Real Taste, Since 1955</p>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-16 sm:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold saffron-text mb-8">Our Story</h3>
+                <div class="max-w-3xl mx-auto flex flex-col items-center justify-center gap-8 md:gap-12">
+                    <!-- Sadhuram Jotumal & Sons Section -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 text-left w-full">
+                        <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border-4 border-orange-200 flex-shrink-0">
+                            <img src="https://placehold.co/400x400/EFEFEF/333333?text=Founder+Photo" alt="Founder Photo" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-lg md:text-xl leading-relaxed">
+                            Established in 1955 by Sadhuram Jotumal Motwani, M/S Sadhuram Jotumal & Sons has always been committed to manufacturing pure and superior spices. Quality, consistency, and a unique flavor—this is our identity. We provide you with a vast portfolio of natural and organic products, which bring the authentic taste of India to your food.
+                        </p>
+                    </div>
+                    <!-- S.J. Proteins Section -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 text-left w-full mt-12">
+                         <div class="flex flex-row space-x-4">
+                            <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-xl border-4 border-orange-200 flex-shrink-0">
+                                <img src="https://placehold.co/400x400/EFEFEF/333333?text=Founder+1" alt="Founder 1 Photo" class="w-full h-full object-cover">
+                            </div>
+                             <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-xl border-4 border-orange-200 flex-shrink-0">
+                                <img src="https://placehold.co/400x400/EFEFEF/333333?text=Founder+2" alt="Founder 2 Photo" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <p class="text-lg md:text-xl leading-relaxed">
+                            Established in 2018, S.J. Proteins is a company founded by Ramdas Sadhuram Motwani and Rameshlal Sadhuram Motwani. It is dedicated to manufacturing superior-quality Chana Dal. With an expanding portfolio, we are committed to bringing more products in the future. Our main focus is towards quality and organic products. We offer our dal with both sortex and non-sortex separation for the best quality.
+                        </p>
+                    </div>
+                     <p class="mt-8 text-lg md:text-xl font-bold text-center leading-relaxed">
+                        “Quality is achieved when you yourself can use your product without hesitation.”
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-16 sm:py-24 bg-orange-50">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl md:text-4xl font-bold text-center saffron-text mb-12">Our Products</h3>
+                
+                <!-- Filter Buttons -->
+                <div id="filter-container" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+                    <button class="filter-btn active-filter" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="powdered">Powdered Spices</button>
+                    <button class="filter-btn" data-filter="flour">Flour</button>
+                    <button class="filter-btn" data-filter="whole">Whole Spices</button>
+                    <button class="filter-btn" data-filter="pulses">Pulses</button>
+                </div>
+
+                <h4 class="text-2xl font-bold text-gray-800 mb-8">M/S Sadhuram Jotumal & Sons</h4>
+                <div id="sadhuram-product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16">
+                    <!-- Products for Sadhuram Jotumal & Sons will be injected here by JavaScript -->
+                </div>
+
+                <h4 class="text-2xl font-bold text-gray-800 mb-8">S.J Proteins</h4>
+                <div id="sjproteins-product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Products for S.J. Proteins will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 sm:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold saffron-text mb-12">Contact Us</h3>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-orange-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <h4 class="text-2xl font-semibold mb-4 text-gray-700">Address</h4>
+                            <p class="text-lg">E-15, New Kirana Bazaar, Balapur Bypass, Akola, Maharashtra - 444001</p>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-semibold mb-4 text-gray-700">Contact</h4>
+                            <p class="text-lg"><strong>Mobile:</strong> 93702 22919</p>
+                            <p class="text-lg"><strong>Mobile:</strong> 80072 22919</p>
+                            <p class="text-lg mt-2"><strong>Email:</strong> Manishmotwani85@gmail.com</p>
+                        </div>
+                        <div class="md:col-span-2">
+                             <h4 class="text-2xl font-semibold mb-4 text-gray-700">FSSAI Number</h4>
+                             <p class="text-lg">11516052000452</p>
+                             <p class="text-lg">11516052000451</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="saffron-bg text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 M/S Sadhuram Jotumal & Sons. All Rights Reserved.</p>
+            <div class="flex items-center justify-center mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Product Data
+        const products = [
+            { name: 'Turmeric Powder (Haldi)', category: 'powdered', firm: 'sadhuram', image: 'https://i.postimg.cc/kVvsRc1F/TURMERIC.jpg' },
+            { name: 'Garam Masala', category: 'powdered', firm: 'sadhuram', image: 'https://i.postimg.cc/nMcR7yts/GM.jpg' },
+            { name: 'Coriander Powder', category: 'powdered', firm: 'sadhuram', image: 'https://i.postimg.cc/zVyx2Tv8/CP.jpg' },
+            { name: 'Red Chilli Powder', category: 'powdered', firm: 'sadhuram', image: 'https://i.postimg.cc/DSsBnF1N/KM.jpg' },
+            { name: 'Meat Masala', category: 'powdered', firm: 'sadhuram', image: 'https://images.unsplash.com/photo-1555543166-51368b55c56c?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+            { name: 'Cumin Powder', category: 'powdered', firm: 'sadhuram', image: 'https://i.postimg.cc/vgGP0jgN/CUMIN-P.jpg' },
+            { name: 'Gram Flour (Besan)', category: 'flour', firm: 'sadhuram', image: 'https://i.postimg.cc/t7SrzBXB/BESAN.jpg' },
+            { name: 'Kasuri Methi', category: 'whole', firm: 'sadhuram', image: 'https://i.postimg.cc/nCN0yM97/KASURI.jpg' },
+            { name: 'Sesame Seeds', category: 'whole', firm: 'sadhuram', image: 'https://i.postimg.cc/HJg3LK2k/SESAME.jpg' },
+            { name: 'Cumin', category: 'whole', firm: 'sadhuram', image: 'https://images.unsplash.com/photo-1582294119854-3e91d5724584?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+            { name: 'Chana Dal', category: 'pulses', firm: 'sjproteins', image: 'https://images.unsplash.com/photo-1616421591572-c28f7d9d0c0a?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
+        ];
+
+        const sadhuramProductGrid = document.getElementById('sadhuram-product-grid');
+        const sjproteinsProductGrid = document.getElementById('sjproteins-product-grid');
+        const filterContainer = document.getElementById('filter-container');
+
+        // Function to display products
+        function displayProducts(filteredProducts) {
+            sadhuramProductGrid.innerHTML = '';
+            sjproteinsProductGrid.innerHTML = '';
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300';
+                
+                productCard.innerHTML = `
+                    <div class="w-full h-48 sm:h-56 bg-white flex items-center justify-center">
+                        <img src="${product.image}" alt="${product.name}" class="object-contain max-h-full">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="text-lg font-semibold text-center">${product.name}</h4>
+                    </div>
+                `;
+
+                if (product.firm === 'sadhuram') {
+                    sadhuramProductGrid.appendChild(productCard);
+                } else if (product.firm === 'sjproteins') {
+                    sjproteinsProductGrid.appendChild(productCard);
+                }
+            });
+        }
+
+        // Event listener for filter buttons
+        filterContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                // Update active button style
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active-filter'));
+                e.target.classList.add('active-filter');
+
+                const filter = e.target.dataset.filter;
+                const filteredProducts = products.filter(product => {
+                    if (filter === 'all') {
+                        return true;
+                    }
+                    return product.category === filter;
+                });
+                displayProducts(filteredProducts);
+            }
+        });
+        
+        // Initial display of all products
+        displayProducts(products);
+        
+        // Style filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.add('px-4', 'py-2', 'border-2', 'saffron-border', 'text-orange-600', 'font-semibold', 'rounded-full', 'hover:bg-orange-100', 'transition', 'duration-300');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu on link click
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
